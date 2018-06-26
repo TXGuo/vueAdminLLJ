@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/v1': {
+        // target: 'http://localhost:3000',
+        // target: 'https://staging.lljgame.com',
+        // target: 'https://lljgame.com/',
+        target: 'http://47.98.191.128:8087',
+//      target: 'https://192.168.31.124:17223'
+        changeOrigin: true
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
