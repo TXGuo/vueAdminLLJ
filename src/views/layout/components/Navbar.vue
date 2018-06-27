@@ -1,35 +1,55 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
-    <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <breadcrumb></breadcrumb>
-    <el-dropdown class="avatar-container" trigger="click">
-      <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
-        <i class="el-icon-caret-bottom"></i>
-      </div>
-      <el-dropdown-menu class="user-dropdown" slot="dropdown">
-        <router-link class="inlineBlock" to="/">
-          <el-dropdown-item>
-            Home
-          </el-dropdown-item>
-        </router-link>
-        <el-dropdown-item divided>
-          <span @click="logout" style="display:block;">LogOut</span>
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+    <div class="navLeft">
+      <a class="logo">
+        <img src="../../../assets/logo.svg" />
+      </a>
+      <span class="title">LLJ 运营平台</span>
+    </div>
+    <!--<breadcrumb></breadcrumb>-->
+    <div class="navRight is-flex">
+      <span class="nav-item">{{auth}}</span>
+      <span class="nav-item1">：</span>
+      <span class="nav-item pointer" @click="myInfo">{{ user | maxLength }}</span>
+      <span class="nav-item">
+            <el-button @click="changePassword" class="button">修改密码</el-button>
+            <el-button type="primary" @click="logout">安全退出</el-button>
+          </span>
+    </div>
+    <!--<el-dropdown class="avatar-container" trigger="click">-->
+      <!--<div class="avatar-wrapper">-->
+        <!--<img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">-->
+        <!--<i class="el-icon-caret-bottom"></i>-->
+      <!--</div>-->
+      <!--<el-dropdown-menu class="user-dropdown" slot="dropdown">-->
+        <!--<router-link class="inlineBlock" to="/">-->
+          <!--<el-dropdown-item>-->
+            <!--Home-->
+          <!--</el-dropdown-item>-->
+        <!--</router-link>-->
+        <!--<el-dropdown-item divided>-->
+          <!--<span @click="logout" style="display:block;">安全退出</span>-->
+        <!--</el-dropdown-item>-->
+      <!--</el-dropdown-menu>-->
+    <!--</el-dropdown>-->
   </el-menu>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
+// import Hamburger from '@/components/Hamburger'
 
 export default {
+  data () {
+    return {
+      user:window.localStorage.getItem('name'),
+      auth:window.localStorage.getItem('author')==0?'普通管理员':'超级管理员'
+    }
+  },
   components: {
     Breadcrumb,
-    Hamburger
+    // Hamburger
   },
   computed: {
     ...mapGetters([
@@ -37,9 +57,22 @@ export default {
       'avatar'
     ])
   },
+  filters:{
+    maxLength(val){
+      if(val){
+        return val.length<=3?val:val.substr(0,3)+'...'
+      }
+    }
+  },
   methods: {
     toggleSideBar() {
       this.$store.dispatch('ToggleSideBar')
+    },
+    myInfo(){
+      this.$router.push('/mySelf/myInfo')
+    },
+    changePassword () {
+      this.$router.push('/mySelf/users/password')
     },
     logout() {
       this.$store.dispatch('LogOut').then(() => {
@@ -52,9 +85,36 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
 .navbar {
+  width:100%;
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
+  color:#4a4a4a;
+  font-size:14px;
+  .navLeft{
+    float:left;
+    height:50px;
+    .logo{
+      width:50px;
+      height:50px;
+      float:left;
+      img{
+        width:100%;
+        height:100%;
+        display:block;
+      }
+    }
+    .title{
+      color:#4a4a4a;
+      font-weight:700;
+    }
+  }
+  .navRight{
+    float:right;
+    .pointer{
+      cursor:pointer;
+    }
+  }
   .hamburger-container {
     line-height: 58px;
     height: 50px;

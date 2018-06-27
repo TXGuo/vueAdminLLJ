@@ -1,9 +1,12 @@
 #app {
   // 主体区域
   .main-container {
+    width:100%;
     min-height: 100%;
     transition: margin-left .28s;
-    margin-left: 180px;
+    position:fixed;
+    top:0;
+    left:0;
   }
   // 侧边栏
   .sidebar-container {
@@ -12,7 +15,7 @@
     height: 100%;
     position: fixed;
     font-size: 0px;
-    top: 0;
+    top: 50px;
     bottom: 0;
     left: 0;
     z-index: 1001;
@@ -87,13 +90,15 @@
     background-color: $subMenuBg !important;
     &:hover {
       background-color: $menuHover !important;
+      color:#fff!important;
     }
   }
   .el-menu--collapse .el-menu .el-submenu {
     min-width: 180px !important;
   }
+  .sidebar-container .el-submenu .el-menu-item
 
-  //适配移动端
+    //适配移动端
   .mobile {
     .main-container {
       margin-left: 0px;
@@ -114,5 +119,12 @@
     .sidebar-container {
       transition: none;
     }
+  }
+  .sidebar-container .el-submenu>.el-submenu__title{
+     background:#fff!important
+   }
+  .sidebar-container .is-active>.el-submenu__title{
+    background:#00d1b2!important;
+    color:#fff!important;
   }
 }

@@ -40,7 +40,7 @@
           ]
         }
       }
-    }, 
+    },
     created(){
       // this.getMenu();
     },
@@ -62,7 +62,8 @@
         this.$api.login.post({"username":this.form.userName,"password":this.form.password})
           .then((data)=>{
             if(data.data.status="SUCCESS"){
-              setToken(data.data.data.bearer) //测试用的
+              this.$store.dispatch('Login', data.data.data.bearer)
+
               //  this.$store.dispatch('permissio',data.data.data.permissio);
               // this.$store.dispatch('token',data.data.data.bearer);
               window.localStorage.setItem('id',data.data.data.user.Id);
@@ -70,11 +71,12 @@
               window.localStorage.setItem('name',data.data.data.user.Name);
               window.localStorage.setItem('userName',data.data.data.user.Username);
               window.sessionStorage.setItem('token',data.data.data.bearer);
-              window.localStorage.setItem('role',JSON.stringify(data.data.data.permissio));
+              window.localStorage.setItem('roles',JSON.stringify(data.data.data.permissio));
               // let path=this.getMenu();
               // console.log(path)
-              // this.$router.push('/mySelf');
-              this.$router.push('/');
+
+              this.$router.push('/mySelf');
+              // this.$router.push('/');
               setTimeout(function(){
                 location.reload()
               },100)
