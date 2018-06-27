@@ -54,36 +54,6 @@ axios.interceptors.response.use(
     return Promise.reject(error.response.data)   // 返回接口返回的错误信息
   });
 
-
-  router.addRoutes([{
-    path: '/store',
-    meta: {
-      title: '门店管理',
-      icon: 'example'
-    },
-    component: () => import('@/views/store'),
-
-    children: [
-      {
-        meta: { title: '门店列表' },
-        path: '',
-        component: () => import('@/views/store/StoreList')
-      },
-      {
-        name: 'qrcode',
-        meta: { title: 'qrcode' },
-        path: 'drawQrCode/:id/:qrcode',
-        component: () => import('@/views/store/DrawQrCode')
-      },
-      {
-        name: '新建门店',
-        meta: { title: '新建门店' },
-        path: 'edit/:storeId',
-        component: () => import('@/views/store/DrawQrCode')
-      }
-    ]
-  }]);
-
 new Vue({
   el: '#app',
   router,

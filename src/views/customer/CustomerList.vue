@@ -123,7 +123,7 @@
                                 <el-table-column
                                         label="头像"
                                         align="center">
-                                    <template scope="scope">
+                                    <template slot-scope="scope">
                                         <img class="user-title"
                                              src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=1a3d82d42f2dd42a4b0409f9625230d0/314e251f95cad1c86a912b9a753e6709c93d5161.jpg"
                                              alt="">
@@ -193,7 +193,7 @@
                                 <el-table-column
                                         label="头像"
                                         align="center">
-                                    <template scope="scope">
+                                    <template slot-scope="scope">
                                         <img class="user-title"
                                              src="https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=1a3d82d42f2dd42a4b0409f9625230d0/314e251f95cad1c86a912b9a753e6709c93d5161.jpg"
                                              alt="">

@@ -27,6 +27,7 @@ Vue.use(Router)
 export const constantRouterMap = [
   // { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/login', component: () => import('@/views/auth/Login'), hidden: true },
+  { path: '/', redirct:'/mySelf', component: () => import('@/views/mySelf'), hidden: true },
   {
     path: '/mySelf',
     name: '个人中心',
