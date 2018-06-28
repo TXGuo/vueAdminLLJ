@@ -93,9 +93,11 @@
 </script>
 <style lang="less" scoped>
   #mySelf{
-    width:30%;
-    margin:0 auto;
     min-width:300px;
+    width:500px;
+    position:absolute;
+    left:50%;
+    margin-left:-360px;
     h3{
       text-align:center;
       font-size:1.14rem;

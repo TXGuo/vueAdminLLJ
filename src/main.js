@@ -11,7 +11,7 @@ import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import '@/styles/index.scss' // global css
 import '@/theme/index.css' // global css
 import api from '@/api/api'
-
+import fontAsome from 'font-awesome/scss/font-awesome.scss'
 import App from './App'
 import router from './router'
 import store from './store'
@@ -23,7 +23,7 @@ Vue.use(VueAxios, axios)
 Vue.use(api)
 
 Vue.use(ElementUI, { locale })
-
+Vue.use(fontAsome);
 Vue.config.productionTip = false;
 axios.interceptors.request.use(
   config => {

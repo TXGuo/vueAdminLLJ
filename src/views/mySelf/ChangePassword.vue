@@ -25,8 +25,10 @@
 
 <style lang="less" scoped>
   div.box1 {
-    width:50%;
-    margin:0 auto;
+    width:500px;
+    position:absolute;
+    left:50%;
+    margin-left:-360px;
     min-width: 400px;
     .txt{
       text-align:center;

@@ -60,7 +60,7 @@
     </el-tabs>
 </template>
 <script>
-  import cities from '../../filters/cities';
+  // import cities from '../../filters/cities';
 
   export default {
     data() {

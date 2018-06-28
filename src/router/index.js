@@ -31,7 +31,7 @@ export const constantRouterMap = [
   {
     path: '/mySelf',
     name: '个人中心',
-    meta: { title: '个人中心', icon: 'example' },
+    meta: { title: '个人中心', icon: 'fa-user-o' },
     component: () => import('@/views/mySelf'),
     children: [
       {
@@ -52,7 +52,7 @@ export const constantRouterMap = [
     path: '/store',
     meta: {
       title: '门店管理',
-      icon: 'example'
+      icon: 'fa-building-o'
     },
     hidden: req('store'),
     component: () => import('@/views/store'),
@@ -73,7 +73,7 @@ export const constantRouterMap = [
         name: '新建门店',
         meta: { title: '新建门店' },
         path: 'edit/:storeId',
-        component: () => import('@/views/store/DrawQrCode')
+        component: () => import('@/views/store/StoreAdd')
       }
     ]
   },
@@ -82,7 +82,7 @@ export const constantRouterMap = [
     path: '/equipment',
     meta: {
       title: '设备管理',
-      icon: 'example'
+      icon: 'fa-television'
     },
     hidden: req('service') || req('operative'),
     component: () => import('@/views/equipment'),
@@ -130,7 +130,7 @@ export const constantRouterMap = [
     path: '/operation',
     meta: {
       title: '运营管理',
-      icon: 'example'
+      icon: 'fa-database'
     },
     hidden: req('recharge') || req('card'),
     component: () => import('@/views/operation'),
@@ -170,7 +170,7 @@ export const constantRouterMap = [
     path: '/client',
     meta: {
       title: '用户管理',
-      icon: 'example'
+      icon: 'fa-user-circle-o'
     },
     hidden: req('userList') || req('operationLog'),
     component: () => import('@/views/client'),
@@ -201,7 +201,7 @@ export const constantRouterMap = [
         meta: { title: '用户操作日志' },
         path: 'operationLog',
         hidden: req('operationLog'),
-        component: () => import('@/views/client/PropertyManagement')
+        component: () => import('@/views/client/OperationLog')
       }
     ]
   },
@@ -209,7 +209,7 @@ export const constantRouterMap = [
     path: '/customer',
     meta: {
       title: '客户管理',
-      icon: 'example'
+      icon: 'fa-users'
     },
     hidden: req('customerList') || req('integralManagement') || req('integralMall'),
     component: () => import('@/views/customer'),
@@ -269,7 +269,7 @@ export const constantRouterMap = [
     path: '/ip',
     meta: {
       title: 'IP管理',
-      icon: 'tree'
+      icon: 'fa-binoculars'
     },
     hidden: req('list'),
     component: () => import('@/views/IP'),
@@ -300,7 +300,7 @@ export const constantRouterMap = [
     path: '/scene',
     meta: {
       title: '景品管理',
-      icon: 'example'
+      icon: 'fa-github-alt'
     },
     hidden: req('sceneList'),
     component: () => import('@/views/scene'),

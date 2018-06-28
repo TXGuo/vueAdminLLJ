@@ -8,6 +8,9 @@
     top:0;
     left:0;
   }
+  .router-link-exact-active,.router-link-active{
+    background:#00d1b2!important;
+  }
   // 侧边栏
   .sidebar-container {
     transition: width 0.28s;
@@ -88,10 +91,10 @@
   .sidebar-container .el-submenu .el-menu-item {
     min-width: 180px !important;
     background-color: $subMenuBg !important;
-    &:hover {
-      background-color: $menuHover !important;
-      color:#fff!important;
-    }
+    //&{
+    //  background:hover -color: $menuHover !important;
+    //  color:#fff!important;
+    //}
   }
   .el-menu--collapse .el-menu .el-submenu {
     min-width: 180px !important;

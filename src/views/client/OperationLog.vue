@@ -53,7 +53,7 @@
                     </el-table>
                 </div>
                 <br>
-                <pagination :metadata="pagination" @paginated="paginated"></pagination>
+                <!--<pagination :metadata="pagination" @paginated="paginated"></pagination>-->
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -62,7 +62,7 @@
 
 </style>
 <script>
-  import Pagination from '../../components/ui/Pagination'
+  // import Pagination from '../../components/ui/Pagination'
   export default {
     data() {
       return {
@@ -136,7 +136,7 @@
       this.loadData()
     },
     components: {//组件
-      Pagination
+      // Pagination
     }
   }
 </script>
