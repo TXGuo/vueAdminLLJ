@@ -89,6 +89,8 @@ export default {
   height: 50px;
   line-height: 50px;
   border-radius: 0px !important;
+  margin-left: 5px;
+  padding-right: 10px;
   .navLeft{
     float:left;
     height:50px;
