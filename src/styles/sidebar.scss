@@ -1,15 +1,9 @@
 #app {
   // 主体区域
   .main-container {
-    width:100%;
     min-height: 100%;
     transition: margin-left .28s;
-    position:fixed;
-    top:0;
-    left:0;
-  }
-  .router-link-exact-active,.router-link-active{
-    background:#00d1b2!important;
+    margin-left: 180px;
   }
   // 侧边栏
   .sidebar-container {
@@ -18,7 +12,7 @@
     height: 100%;
     position: fixed;
     font-size: 0px;
-    top: 50px;
+    top: 0;
     bottom: 0;
     left: 0;
     z-index: 1001;
@@ -91,17 +85,15 @@
   .sidebar-container .el-submenu .el-menu-item {
     min-width: 180px !important;
     background-color: $subMenuBg !important;
-    //&{
-    //  background:hover -color: $menuHover !important;
-    //  color:#fff!important;
-    //}
+    &:hover {
+      background-color: $menuHover !important;
+    }
   }
   .el-menu--collapse .el-menu .el-submenu {
     min-width: 180px !important;
   }
-  .sidebar-container .el-submenu .el-menu-item
 
-    //适配移动端
+  //适配移动端
   .mobile {
     .main-container {
       margin-left: 0px;
@@ -122,12 +114,5 @@
     .sidebar-container {
       transition: none;
     }
-  }
-  .sidebar-container .el-submenu>.el-submenu__title{
-     background:#fff!important
-   }
-  .sidebar-container .is-active>.el-submenu__title{
-    background:#00d1b2!important;
-    color:#fff!important;
   }
 }

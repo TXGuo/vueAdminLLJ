@@ -20,9 +20,9 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-  #app{
-    height:auto;
-    overflow:visible;
-    padding-bottom:100px;
-  }
+  // #app{
+  //   height:auto;
+  //   overflow:visible;
+  //   padding-bottom:100px;
+  // }
 </style>
