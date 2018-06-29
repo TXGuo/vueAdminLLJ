@@ -78,6 +78,8 @@
                                 align="center">
                         </el-table-column>
                     </el-table>
+                  <el-pagination  @current-change="handleCurrentChange" :page-size="20" background  :total="this.pageNation.total"  layout="prev, pager, next,jumper" v-if="this.pageNation.total>20">
+                  </el-pagination>
                 </div>
                 <br>
                 <!--<Pagination :metadata="pagination" @paginated="paginated"></Pagination>-->
@@ -87,6 +89,12 @@
 </template>
 
 <style scoped lang="scss" type="text/scss">
+  .el-pagination{
+    width:700px;
+    float:right;
+    margin-top:20px;
+    text-align:right;
+  }
     .title {
         font-size: 24px;
         text-align: center;
@@ -123,8 +131,10 @@
         timeEnd: null,
         products: null,
         params: {
-          page: 1,
-          perpage: 10
+          page:1,
+          perpage:20
+        },
+        pageNation:{
         },
         params1:{},
         tableData3: [],
@@ -149,13 +159,17 @@
           if (res.status === "SUCCESS") {
             let users = res.data.users;
             this.tableData3 = users;
-            this.pagination = res.data.pagination
+            this.pageNation = res.data.pagination
           } else {
             console.log('出错了')
           }
         }).catch(() => {
           console.log('HTTP出错了1111')
         })
+      },
+      handleCurrentChange(val){
+        // this.params.page=val;
+        this.loadData(val);
       },
       paginated(page) {
         this.loadData(page)

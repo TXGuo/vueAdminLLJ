@@ -230,7 +230,8 @@
                                 </el-table-column>
                             </el-table>
                             <br>
-                            <!--<Pagination :metadata="pagination" @paginated="paginated"></Pagination>-->
+                          <el-pagination  @current-change="handleCurrentChange" :page-size="20" background  :total="this.pageNation.total"  layout="prev, pager, next,jumper" v-if="this.pageNation.total>20">
+                          </el-pagination>
                         </el-tab-pane>
                     </el-tabs>
                 </el-tab-pane>
@@ -241,6 +242,12 @@
 </template>
 
 <style scoped lang="scss" type="text/scss">
+  .el-pagination{
+    width:700px;
+    float:right;
+    margin-top:20px;
+    text-align:right;
+  }
     .title {
         font-size: 24px;
         text-align: center;
@@ -277,10 +284,11 @@
     data() {
       return {
         operation: true,//收起展开的开关
-        pagination: {"total": 0, "page": 0, "perPage": 10, "hasNext": false},
         params: {
-          page: 1,
-          perPage: 10
+          page:1,
+          perpage:20
+        },
+        pageNation:{
         },
         search: {//搜索条件
           userId: '',
@@ -340,13 +348,16 @@
             .then((res) => {
               var res = data.data;
               if (res.status == 'SUCCESS') {
-                this.pagination = res.data.pagination;
+                this.pageNation = res.data.pagination;
                 this.tableData = res.data.consumers;
               }
               console.log(res)
             })
             .catch(() => {
             })
+      },
+      handleCurrentChange(val){
+        this.loadData(val);
       },
       submitForm(formName) {
         console.log(this.formInline)

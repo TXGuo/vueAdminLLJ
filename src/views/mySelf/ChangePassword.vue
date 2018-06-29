@@ -28,7 +28,7 @@
     width:500px;
     position:absolute;
     left:50%;
-    margin-left:-360px;
+    margin-left:-200px;
     min-width: 400px;
     .txt{
       text-align:center;

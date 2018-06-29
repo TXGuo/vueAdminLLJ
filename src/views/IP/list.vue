@@ -137,6 +137,12 @@
 <style lang="less" scoped>
   .list{
     width:600px;
+    .el-pagination{
+      width:700px;
+      float:right;
+      margin-top:20px;
+      text-align:right;
+    }
     h3{
       font-weight:bold;
       margin-top:10px;

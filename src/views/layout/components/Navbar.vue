@@ -1,7 +1,7 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
-    <!-- <breadcrumb></breadcrumb> -->
+     <!--<breadcrumb></breadcrumb> -->
     <div class="navLeft">
       <a class="logo">
         <img src="../../../assets/logo.svg" />
@@ -91,6 +91,13 @@ export default {
   border-radius: 0px !important;
   margin-left: 5px;
   padding-right: 10px;
+  color:#606266;
+  position:fixed;
+  top:0;
+  z-index:99;
+  width:95%;
+  padding-right:190px;
+  box-sizing:border-box;
   .navLeft{
     float:left;
     height:50px;

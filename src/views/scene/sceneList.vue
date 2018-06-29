@@ -305,8 +305,9 @@
     }
     .el-pagination{
       width:700px;
-      margin:0 auto;
+      float:right;
       margin-top:20px;
+      text-align:right;
     }
     .search{
       margin-top:30px;

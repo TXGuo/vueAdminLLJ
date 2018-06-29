@@ -6,7 +6,7 @@
       :default-active="$route.path"
       :collapse="isCollapse"
       background-color="#fff"
-      text-color="#bfcbd9"
+      text-color="#606266"
       active-text-color="#00d1b2"
     >
       <sidebar-item :routes="routes"></sidebar-item>

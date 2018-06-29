@@ -106,6 +106,7 @@
 
 <style scoped lang="scss" type="text/scss">
 .recharge {
+  padding-top:35px;
   .wrap {
     .title {
       font-size: 20px;

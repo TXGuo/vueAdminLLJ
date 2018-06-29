@@ -97,7 +97,7 @@
     width:500px;
     position:absolute;
     left:50%;
-    margin-left:-360px;
+    margin-left:-200px;
     h3{
       text-align:center;
       font-size:1.14rem;

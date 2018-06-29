@@ -118,9 +118,10 @@
                             </template>
                         </el-table-column>
                     </el-table>
+                  <el-pagination  @current-change="handleCurrentChange" :page-size="20" background  :total="this.pageNation.total"  layout="prev, pager, next,jumper" v-if="this.pageNation.total>20">
+                  </el-pagination>
                 </div>
                 <br>
-                <!--<Pagination :metadata="pagination" @paginated="paginated"></Pagination>-->
             </el-tab-pane>
         </el-tabs>
         <div>
@@ -143,8 +144,10 @@
         timeStart: null,
         timeEnd: null,
         params: {
-          page: 1,
-          perpage: 10
+          page:1,
+          perpage:20
+        },
+        pageNation:{
         },
         params1: {},
         tableData3: [],
@@ -181,7 +184,7 @@
           if (res.status === "SUCCESS") {
             let users = res.data.stores;
             this.tableData3 = users;
-            this.pagination = res.data.pagination
+            this.pageNation = res.data.pagination
           } else {
             console.log('出错了')
           }
@@ -231,6 +234,10 @@
           url = '/store/edit/' + arr[0];
         }
         this.$router.push(url);
+      },
+      handleCurrentChange(val){
+        // this.params.page=val;
+        this.loadData(val);
       },
       del(){
         let arr = this.multipleSelection;
@@ -295,6 +302,7 @@
         // for(let i = 0;i<canvas.length;i++){
         //   QRCode.toCanvas(canvas, code, function (error) {
         //     if (error) console.error(error)
+        //     console.log('success!');
         //   })
         // }
       },
@@ -327,7 +335,12 @@
     .store-list .el-table__body-wrapper.is-scrolling-none {
         overflow: visible;
     }
-
+    .el-pagination{
+      width:700px;
+      float:right;
+      margin-top:20px;
+      text-align:right;
+    }
     .code {
         position: absolute;
         width: 100px!important;

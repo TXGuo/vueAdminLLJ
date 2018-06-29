@@ -53,23 +53,30 @@
                     </el-table>
                 </div>
                 <br>
-                <!--<pagination :metadata="pagination" @paginated="paginated"></pagination>-->
+              <el-pagination  @current-change="handleCurrentChange" :page-size="20" background  :total="this.pageNation.total"  layout="prev, pager, next,jumper" v-if="this.pageNation.total>20">
+              </el-pagination>
             </el-tab-pane>
         </el-tabs>
     </div>
 </template>
 <style scoped lang="scss" type="text/scss">
-
+  .el-pagination{
+  width:700px;
+  float:right;
+  margin-top:20px;
+  text-align:right;
+}
 </style>
 <script>
   // import Pagination from '../../components/ui/Pagination'
   export default {
     data() {
       return {
-        pagination: {},
         params: {
-          page: 1,
-          perpage: 10
+          page:1,
+          perpage:20
+        },
+        pageNation:{
         },
         formInline: {//输入框组件需要的变量
           username: '',
@@ -102,7 +109,7 @@
           var res = data.data;
           if (res.status == 'SUCCESS') {
             this.tableData = res.data.accessLog;
-            this.pagination = res.data.pagination;
+            this.pageNation = res.data.pagination;
           } else {
             this.$message({
               message: '获取数据失败',
@@ -118,6 +125,10 @@
       },
       paginated(page) {//翻页
         this.loadData(page)
+      },
+      handleCurrentChange(val){
+        // this.params.page=val;
+        this.loadData(val);
       },
       selectData() {//搜索
         var formInline = this.formInline;

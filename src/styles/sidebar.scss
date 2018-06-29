@@ -5,6 +5,7 @@
     transition: margin-left .28s;
     margin-left: 180px;
     background: #f2f2f2;
+    height:100%;
   }
   // 侧边栏
   .sidebar-container {
@@ -87,21 +88,22 @@
     min-width: 180px !important;
     background-color: $subMenuBg !important;
     //&:hover {
-    //  background-color: $menuHover !important;
+    //  background-color: #00d1b2 !important;
     //}
   }
-  .el-menu--collapse .el-menu .el-submenu {
+  .el-menu--collapse .el-menu .el-submenu .el-submenu__title{
     min-width: 180px !important;
+    background:#00d1b2;
   }
-  .sidebar-container .el-submenu>.el-submenu__title{
-    background:#fff;
-  }
-  .sidebar-container .is-active>.el-submenu__title{
-    background:#00d1b2 !important;
-    color:#fff !important;
+  .is-active .el-submenu__title i{
+    color:#fff;
   }
   #app .el-menu-item.is-active{
     color:#00d1b2;
+  }
+  .el-submenu.is-active .el-submenu__title{
+    background:#00d1b2!important;
+    color:#fff!important;
   }
   //适配移动端
   .mobile {

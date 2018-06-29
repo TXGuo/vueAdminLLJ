@@ -53,6 +53,7 @@
       },
       save(){
         if(this.form.checked){
+          console.log(this.form.password)
           window.localStorage.setItem('userName',this.form.userName);
           window.localStorage.setItem('password',this.form.password);
         }
@@ -79,7 +80,7 @@
               // this.$router.push('/');
               setTimeout(function(){
                 location.reload()
-              },100)
+              },1000)
             }
         }).catch((data)=>{
           this.$message({

@@ -6,6 +6,8 @@
 
 body {
   height: 100%;
+  font-size:14px;
+  color:#606266;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -75,7 +77,13 @@ a:hover {
   box-sizing: border-box;
   background-color: #f2f2f2;
 }
-
+.el-input input{
+  height:35px;
+  line-height:35px;
+}
+.el-button{
+  height:35px;
+}
 .app-container {
   padding: 20px;
 }

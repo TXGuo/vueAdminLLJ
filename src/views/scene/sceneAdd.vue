@@ -17,7 +17,7 @@
         <el-upload
           class="upload-demo"
           action="https://upload-z2.qbox.me"
-          limit="1"
+          :limit="1"
           :data="formData"
           list-type="picture-card"
           :file-list="photo"
@@ -56,13 +56,29 @@
       <el-form-item  required label="颜色/标签：" prop="color">
         <el-input v-model="form.color"></el-input>
       </el-form-item>
+      <el-form-item  required label="品牌：" prop="brand">
+        <el-input type="text" v-model="form.brand"></el-input>
+      </el-form-item>
+      <el-form-item required label="合作方式" prop="cooperation">
+        <el-select class="shop" v-model="form.cooperation" placeholder="请选择">
+          <el-option  v-for="item in ways"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item class="title" label="景品销售">
+      </el-form-item>
+      <el-form-item  required label="启动币数：" prop="priceThreshold">
+        <el-input type="number" v-model="form.priceThreshold"></el-input>
+      </el-form-item>
       <el-form-item  required label="成本：" prop="cost">
         <el-input type="number" v-model="form.cost"></el-input>
       </el-form-item>
       <el-form-item  required label="售价：" prop="price">
         <el-input type="number" v-model="form.price"></el-input>
       </el-form-item>
-      <el-form-item class="title" label="景品抓取属性">
+      <el-form-item class="title" label="设备匹配">
       </el-form-item>
       <el-form-item required label="景品爪型" prop="clawType">
         <el-select class="shop" v-model="form.clawType" placeholder="请选择">
@@ -101,6 +117,24 @@
         photo:[],
         ipId1:'',
         ipId2:'',
+        ways:[
+          {
+            label:'自产',
+            value:1
+          },
+          {
+            label:'授权资产',
+            value:2
+          },
+          {
+            label:'直采',
+            value:3
+          },
+          {
+            label:'代销',
+            value:4
+          }
+        ],
         types:[
           {
             label:'S',
@@ -140,6 +174,15 @@
           ],
           size:[
             {required: true, message: '请输入尺寸', trigger: 'blur'}
+          ],
+          brand:[
+            {required: true, message: '请输入品牌名称', trigger: 'blur'}
+          ],
+          cooperation:[
+            {required: true, message: '请选择合作方式', trigger: 'change'}
+          ],
+          priceThreshold:[
+            {required: true, message: '请输入启动币数', trigger: 'blur'}
           ],
           cost:[
             {required: true, message: '请输入成本', trigger: 'blur'}
@@ -240,6 +283,7 @@
         this.form.price=parseFloat(this.form.price);
         this.form.maxPower =parseFloat(this.form.maxPower);
         this.form.minPower=parseFloat(this.form.minPower);
+        this.form.priceThreshold=parseFloat(this.form.priceThreshold);
         this.form.ipId=parseFloat(this.ipId1)||parseFloat(this.ipId2);
         this.$api.products.create(this.form)
           .then(data=>{
